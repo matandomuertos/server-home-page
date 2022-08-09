@@ -1,2 +1,2 @@
-# another-mern
-Not actually MERN, I see no sense to run MongoDB so it's kind of ERN.
+# server-home-page
+NodeJS + React (kinda ERN, without M, because I see no sense to run MongoDB) home page for home server with ability to start/pause/restart/stop Docker containers
