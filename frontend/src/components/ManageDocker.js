@@ -13,6 +13,8 @@ import RestartIcon from '@mui/icons-material/RestartAlt'
 import StopIcon from '@mui/icons-material/Stop'
 import container from './../features/container'
 
+// Divide this in different components
+
 function ManageDocker({app, containerName}) {
 
   const [loading, setLoading] = useState(false)

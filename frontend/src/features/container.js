@@ -1,18 +1,23 @@
 import axios from './axios'
 const APP_URL = '/api/v1/'
 
+function errorPrinter(err){
+		if(err.response){
+      console.log(err.response.data)
+      console.log(err.response.status)
+		}
+		else{
+			console.log(`Error: ${err.message}`)
+		}
+}
+
 async function getContainer(name){
 	try{
 		const response = await axios.get(APP_URL, { params: { containerName: name }})
 		return response
 	} 
 	catch(err){
-		if(err.response){
-      console.log(err.response.data)
-		}
-		else{
-			console.log(`Error: ${err.message}`)
-		}
+		errorPrinter(err)
 	}
 }
 
@@ -22,14 +27,7 @@ async function pauseContainer(name){
 		return response
 	} 
 	catch(err){
-		if(err.response){
-      console.log(err.response.data)
-      console.log(err.response.status)
-      console.log(err.response.headers)
-		}
-		else{
-			console.log(`Error: ${err.message}`)
-		}
+		errorPrinter(err)
 	}
 }
 
@@ -40,14 +38,7 @@ async function startContainer(name){
 		return response
 	} 
 	catch(err){
-		if(err.response){
-      console.log(err.response.data)
-      console.log(err.response.status)
-      console.log(err.response.headers)
-		}
-		else{
-			console.log(`Error: ${err.message}`)
-		}
+		errorPrinter(err)
 	}
 }
 
@@ -57,14 +48,7 @@ async function restartContainer(name){
 		return response
 	} 
 	catch(err){
-		if(err.response){
-      console.log(err.response.data)
-      console.log(err.response.status)
-      console.log(err.response.headers)
-		}
-		else{
-			console.log(`Error: ${err.message}`)
-		}
+		errorPrinter(err)
 	}
 }
 
@@ -74,14 +58,7 @@ async function stopContainer(name){
 		return response
 	} 
 	catch(err){
-		if(err.response){
-      console.log(err.response.data)
-      console.log(err.response.status)
-      console.log(err.response.headers)
-		}
-		else{
-			console.log(`Error: ${err.message}`)
-		}
+		errorPrinter(err)
 	}
 }
 
