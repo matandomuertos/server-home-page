@@ -7,8 +7,8 @@ import Card from '@mui/material/Card'
 import CardMedia from '@mui/material/CardMedia'
 import CardContent from '@mui/material/CardContent'
 import CardActionArea from '@mui/material/CardActionArea'
-// import CircularProgress from '@mui/material/CircularProgress'
-// import Backdrop from '@mui/material/Backdrop'
+import Box from '@mui/material/Box'
+import CircularProgress from '@mui/material/CircularProgress'
 import Link from '@mui/material/Link'
 import container from './../features/container'
 import DockerStatus from './DockerStatus'
@@ -17,20 +17,40 @@ import ManageDocker from './ManageDocker'
 function Apps({containerName, image, title, url}) {
 
   const [app, setApp] = useState([])
-  //const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     retrieveContainers()
   }, [])
 
   function retrieveContainers(){
+    setLoading(true)
     container.getContainer(containerName).then(response => { 
+      setLoading(false)
       renderCont(response.data.container)
     })
   }
 
   function renderCont(contData){
     contData.map((data) => ( setApp(data) ))
+  }
+
+  function isLoading(){
+    if(loading){
+      return (
+        <Box sx={{ display: 'flex', pt: 5, justifyContent: 'center' }}>
+          <CircularProgress color="inherit" />
+        </Box>
+      )
+    }
+    else{
+      return(
+        <>
+          <DockerStatus app={app}/>
+          <ManageDocker app={app} containerName={containerName}/>
+        </>
+      )
+    }
   }
 
   return (
@@ -57,19 +77,11 @@ function Apps({containerName, image, title, url}) {
             </Link>
           </CardActionArea>
           <CardContent>
-              <DockerStatus app={app}/>
-              <ManageDocker app={app} containerName={containerName}/>
+              {isLoading()}
           </CardContent>
         </Card>
-{/*        <Backdrop
-          sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-          open={loading} >
-          <CircularProgress color="inherit" />
-        </Backdrop>*/}
       </Grid>
   )
 }
 
 export default Apps
-
-// add another component with Start/Pause - Stop - Restart docker

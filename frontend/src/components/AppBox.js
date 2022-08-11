@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Grid from '@mui/material/Grid'
 import Alert from '@mui/material/Alert'
 import AlertTitle from '@mui/material/AlertTitle'
-import Apps from './Apps'
+import AppCard from './AppCard'
 
 function AppBox() {
 
@@ -22,8 +22,8 @@ function AppBox() {
     },
     {
         name: "Nope",
-        domain: '',
-        containerName: "test",
+        domain: 'https://google.com',
+        containerName: "test123",
         image: "data:image/png;base64,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"
     },
   ])
@@ -31,10 +31,10 @@ function AppBox() {
   return (
     <Grid container spacing={2} justifyContent="center" display="flex" sx={{ pt: 2 }}>
       {
-        applications.length === 0 ? 
+        applications.length !== 0 ? 
         (
           applications.map(app => (
-            <Apps containerName={app.containerName} title={app.name} image={app.image}/>
+            <AppCard containerName={app.containerName} title={app.name} image={app.image} url={app.domain}/>
           ))
         ) : 
         (
