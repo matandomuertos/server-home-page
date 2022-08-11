@@ -19,7 +19,7 @@ Apps data is stored [here](https://github.com/matandomuertos/server-home-page/bl
 As simple as use [docker-compose](https://docs.docker.com/compose/): `docker-compose up -d`
 
 ## How to test it easy and fast
-By default the app is watching container with name `plex`, `utorrent` and `test123`, it's possible to deploy a sample version of uTorrent and Plex adding these lines to `docker-compose.yaml`:
+By default the app is watching container with name `plex` and `utorrent`, it's possible to deploy a sample version of uTorrent and Plex adding these lines to `docker-compose.yaml`:
 ```
   utorrent:
     image: ekho/utorrent:latest
