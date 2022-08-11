@@ -6,6 +6,9 @@ COPY frontend/ .
 
 RUN npm install
 
+ENV NODE_ENV production
+ENV REACT_APP_API http://backend:8000
+
 RUN npm run build
 
 
