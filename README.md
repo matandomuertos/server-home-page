@@ -1,5 +1,6 @@
 # server-homepage
-NodeJS + React (kinda ERN, without M, because I see no sense to run MongoDB) home page for home server with ability to start/pause/restart/stop Docker containers
+NodeJS + React (kinda ERN, without M, because I see no sense to run MongoDB) homepage for home servers with ability to start/pause/restart/stop Docker containers.
+If you have multiple apps running in your server, server-homepage offers a simple way to access all of them and manage the docker containers where they are running.
 
 ## CRUD apps data
 Apps data is stored [here](https://github.com/matandomuertos/server-home-page/blob/main/frontend/src/components/AppBox.js#L9), after modify it, compile the app.
