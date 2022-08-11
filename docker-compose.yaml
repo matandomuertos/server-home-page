@@ -1,0 +1,21 @@
+version: '2.1'
+
+services:
+
+  frontend:
+    image: matandomuertos/server-homepage-frontend:latest
+    container_name: homepage-frontend
+    # environment:
+    #   - TZ=Europe/Warsaw
+    ports:
+      - 8080:80
+    restart: unless-stopped
+
+  backend:
+    image: matandomuertos/server-homepage-backend:latest
+    container_name: omepage-backend
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8000:8000
+    restart: unless-stopped

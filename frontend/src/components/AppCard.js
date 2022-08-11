@@ -59,7 +59,7 @@ function Apps({containerName, image, title, url}) {
           <CardActionArea>
             <Link href={url} target="_blank" underline="none" color="inherit">
               <Grid container spacing={1} justifyContent="center" display="flex">
-                <Grid item >
+                <Grid item>
                   { app.State === 'running' ? <AppsIconOk sx={{ fontSize: 50 }}/> : app.State === 'paused' ? <AppsIconError color="warning" sx={{ fontSize: 50 }}/> : <AppsIconError color="error" sx={{ fontSize: 50 }}/> }
                 </Grid>
                 <Grid item>

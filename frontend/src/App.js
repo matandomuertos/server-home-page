@@ -14,7 +14,7 @@ function App() {
         },
         typography: {
           fontFamily: [
-            'BlinkMacSystemFont'
+            'Helvetica Neue'
           ]
         },
       }),

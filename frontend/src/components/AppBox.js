@@ -11,7 +11,7 @@ function AppBox() {
     {
         name: "Plex",
         domain: 'http://koko:32400/web/index.html',
-        containerName: "plex-server",
+        containerName: "plex",
         image: "https://avatars.githubusercontent.com/u/324832?v=4&s=400"
     },
     {
