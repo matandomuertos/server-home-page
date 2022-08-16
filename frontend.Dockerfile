@@ -7,7 +7,7 @@ COPY frontend/ .
 RUN npm install
 
 ENV NODE_ENV production
-ENV REACT_APP_API http://koko:80
+ENV REACT_APP_API http://koko
 
 RUN npm run build
 
