@@ -5,11 +5,13 @@ on:
     branches: [ "main" ]
 
 jobs:
-  name: Build Docker images and push them to ghcr.io and DockerHub
 
-  build:
+  push_to_registries:
+    name: Build Docker images and push them to ghcr.io and DockerHub
     runs-on: ubuntu-latest
-
+    permissions:
+      packages: write
+      contents: read
     steps:
     - name: Check out the repo 
       uses: actions/checkout@v3
